@@ -38,7 +38,7 @@ sys.setrecursionlimit(600000)
 
 
 data_alias='workspace/'
-data_type='.fasta'
+data_type='fasta'
 m=500
 gap=1000
 n=50000
@@ -62,14 +62,14 @@ for top, dirs, files in os.walk(data_alias):
   for filename in files:
     file_type=(os.path.splitext(filename))
 
-    if file_type[-1]==data_type:
+    if file_type[-1]=='.'+data_type:
      # print(file_type)
-      sequence_data_set=SeqIO.parse(open(data_alias+filename),'fasta')
+      sequence_data_set=SeqIO.parse(open(data_alias+filename),data_type)
       for record in sequence_data_set:
         dataname=record.id
         data=record.seq
         content=str(dataname+' '+data)
-        content_=SeqRecord(Seq(data),id=dataname).format('fasta')
+        content_=SeqRecord(Seq(data),id=dataname).format(data_type)
         #print(content)
         dataname_set.append(dataname)
 
@@ -86,8 +86,8 @@ for top, dirs, files in os.walk(data_alias):
 
 file_name_origin='MN975262.1.fasta'
 file_name_child='OM065387.1.fasta'
-record_origin=SeqIO.read(data_alias+file_name_origin,'fasta')
-record_child=SeqIO.read(data_alias+file_name_child,'fasta')
+record_origin=SeqIO.read(data_alias+file_name_origin,data_type)
+record_child=SeqIO.read(data_alias+file_name_child,data_type)
 data_origin_id=record_origin.id
 data_child_id=record_child.id
 dataset_fasta=[]
