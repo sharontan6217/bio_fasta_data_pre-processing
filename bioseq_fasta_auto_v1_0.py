@@ -45,7 +45,6 @@ sys.setrecursionlimit(600000)
 
 data_alias='workspace/'
 data_type='.fasta'
-output_type='.txt'
 m=500
 gap=1000
 n=50000
@@ -89,21 +88,6 @@ for top, dirs, files in os.walk(data_alias):
         with open (data_alias+'index_'+timesequence+output_type,'w') as output:
           output.write(str(dataname_set))
           output.close()
-'''
-for file_name in ['OM065387.1.txt','MN975262.1.txt']:
-    with open (data_alias+file_name) as data_couple:
-      data_=data_couple.read()
-      data_id=data_[0:10]
-      #data_seq=data_[11:int(len(data_)-len(data_id))]
-      data_seq_=data_[9511:10511]
-      data_seq=np.array(data_[9511:10511])
-      print(data_seq)
-      dataset_.append(data_seq_)
-      dataset.append(data_seq)
-      #print(data_)
-      #print(data_id)
-      #print(data_seq)
-'''
 
 
 file_name_origin='MN975262.1.fasta'
