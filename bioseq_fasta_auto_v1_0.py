@@ -14,17 +14,11 @@ pip install Bio
 from google.colab import drive
 drive.mount('/content/drive')
 
-# Commented out IPython magic to ensure Python compatibility.
-# %tensorflow_version 2.x
-import tensorflow as tf
-device_name = tf.test.gpu_device_name()
-if device_name != '/device:GPU:0':
-  raise SystemError('GPU device not found')
-print('Found GPU at: {}'.format(device_name))
+
+rm -r workspace
 
 cp -r drive/MyDrive/workspace_backup workspace
 
-rm -r workspace
 
 import pysam
 from pysam import FastaFile
