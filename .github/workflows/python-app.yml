@@ -39,4 +39,7 @@ jobs:
         cd /home/runner/work/cicdTest/cicdTest
         python3 -m venv calculator
         . calculator/bin/activate
+        pytest -v -conv=calculator 
+        python3 -m venv calculator
+        . calculator/bin/activate
         pytest -v -conv=calculator
